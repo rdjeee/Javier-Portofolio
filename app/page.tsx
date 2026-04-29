@@ -114,7 +114,7 @@ const biodata = {
   instagram: "https://instagram.com/rd.jee/",
   tiktok: "https://tiktok.com/@rd.jeee",
   github: "https://github.com/rdjeee",
-  linkedin: "https://linkedin.com/in/username_linkedin_anda",
+  linkedin: "https://linkedin.com/in/javier-julian-95a6223b4",
 };
 
 const contactCards = [
@@ -179,14 +179,22 @@ const experiences = [
   },
   {
     id: 2,
+    year: "2024",
+    role: "Full-Stack Developer",
+    organization: "Berkolaborasi dengan Petani Caringin",
+    description:
+      "Mendesain dan mengembangkan platform digital untuk memfasilitasi pemasaran dan manajemen produksi tembakau, menghubungkan petani dengan pembeli secara efisien. Proyek ini mencakup pengembangan aplikasi web dengan Laravel, database MySQL, serta meningkatkan efisiensi operasional dan memperluas akses pasar bagi petani tembakau di daerah Caringin.",
+  },
+  {
+    id: 3,
     year: "2025",
     role: "Full-Stack Developer",
-    organization: "BPBD Kabupaten Subang",
+    organization: "BPBD Kab. Subang",
     description:
       "Menginisiasi dan membangun SIGANAS MADU secara end-to-end. Sistem ini mengintegrasikan arsitektur database relasional yang tangguh dengan antarmuka dinamis untuk mempercepat alur informasi, pelaporan warga, dan respons darurat bencana di tingkat daerah secara terpadu.",
   },
   {
-    id: 3,
+    id: 4,
     year: "2026 - Saat Ini",
     role: "Backend Developer & IoT Integrator",
     organization: "Berkolaborasi dengan Awdy Farm",
@@ -252,7 +260,7 @@ const projects = [
     title: "Pemasaran dan Pengelolaan Tembakau",
     description:
       "Platform digital untuk memfasilitasi pemasaran dan manajemen produksi tembakau, menghubungkan petani dengan pembeli secara efis",
-    techStack: ["Laravel", "MySQL", "React Native"],
+    techStack: ["Laravel", "MySQL"],
     link: "#",
   },
   {
@@ -260,7 +268,7 @@ const projects = [
     title: "SIGANAS MADU",
     description:
       "Platform digital terpadu untuk optimalisasi manajemen tanggap bencana daerah, memfasilitasi pelaporan real-time dan respons cepat berbasis partisipasi masyarakat.",
-    techStack: ["Laravel", "MySQL", "Tailwind CSS"],
+    techStack: ["Laravel", "MySQL", "React Native"],
     link: "#",
   },
   {
@@ -268,7 +276,7 @@ const projects = [
     title: "V.I.S.I.O.N",
     description:
       "Sistem agrotech cerdas berbasis Computer Vision dan IoT untuk otomatisasi manajemen pakan dan pemantauan ekosistem tambak secara presisi.",
-    techStack: ["Python", "ESP32-CAM", "Computer Vision", "IoT"],
+    techStack: ["Flutter", "Python", "IoT", "Supabase"],
     link: "#",
   },
 ];
@@ -276,34 +284,42 @@ const projects = [
 const certificates = [
   {
     id: 1,
-    title: "Sertifikasii Sistem Tembakau Caringin",
+    title: "Sertifikasii Sistem Pengelolaan Tembakau Caringin",
     issuer: "Tembakau Caringin",
-    date: "Desember 2024",
-    image: "/certificates/sertifikatCaringin.jpg",
-    credentialUrl: "/dokumen/sertifikatCaringin.pdf",
+    date: "November 2024",
+    image: "/certificates/sertifikatpengelolaanCaringin.svg",
+    credentialUrl: "/dokumen/sertifikatpengelolaanCaringin.pdf",
   },
   {
     id: 2,
-    title: "Sertifikasi Junior Web Programmer",
-    issuer: "BNSP / LSP TIK",
-    date: "November 2025",
-    image: "/certificates/sertifikat1.jpg",
-    credentialUrl: "/dokumen/sertifikatBNSP.pdf",
+    title: "Sertifikasi Sistem Pemasaran Tembakau Caringin",
+    issuer: "Tembakau Caringin",
+    date: "November 2024",
+    image: "/certificates/sertifikatpemasaranCaringin.svg",
+    credentialUrl: "/dokumen/sertifikatpemasaranCaringin.pdf",
   },
   {
     id: 3,
-    title: "Sertifikasi Website SIGANASMADU",
-    issuer: "BPBD Kab. Subang",
+    title: "Sertifikasi Junior Web Programmer",
+    issuer: "BNSP / LSP TIK",
     date: "November 2025",
-    image: "/certificates/AplikasiWebsite.png",
-    credentialUrl: "/dokumen/sertifikatWebsiteSIGANASMADU.pdf",
+    image: "/certificates/sertifikatBNSP.svg",
+    credentialUrl: "/dokumen/sertifikatBNSP.pdf",
   },
   {
     id: 4,
+    title: "Sertifikasi Website SIGANASMADU",
+    issuer: "BPBD Kab. Subang",
+    date: "November 2025",
+    image: "/certificates/AplikasiWebsite.svg",
+    credentialUrl: "/dokumen/sertifikatWebsiteSIGANASMADU.pdf",
+  },
+  {
+    id: 5,
     title: "Sertifikasi Aplikasi Mobile SIGANASMADU",
     issuer: "BPBD Kab. Subang",
     date: "November 2025",
-    image: "/certificates/AplikasiMobile.png",
+    image: "/certificates/AplikasiMobile.svg",
     credentialUrl: "/dokumen/sertifikatMobileSIGANASMADU.pdf",
   },
 ];
@@ -680,7 +696,7 @@ export default function Home() {
           Validasi profesional dan pencapaian berkelanjutan dalam pengembangan
           perangkat lunak dan sistem cerdas.
         </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
