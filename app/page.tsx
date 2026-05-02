@@ -329,6 +329,16 @@ export default function Home() {
   >("idle");
   const [activeTab, setActiveTab] = useState("Semua");
 
+  const [expandedCards, setExpandedCards] = useState<number[]>([]);
+
+  const toggleReadMore = (id: number) => {
+    setExpandedCards((prev) =>
+      prev.includes(id)
+        ? prev.filter((cardId) => cardId !== id)
+        : [...prev, id],
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus("submitting");
@@ -491,45 +501,72 @@ export default function Home() {
               Berbasis di Subang, Jawa Barat, saya memiliki ketertarikan
               mendalam dalam memecahkan masalah dunia nyata melalui teknologi.
               Fokus utama saya mencakup pengembangan web <em>full-stack</em>,
-              aplikasi <em>mobile</em>, hingga integrasi perangkat keras (IoT)
-              yang dilengkapi dengan kecerdasan buatan.
+              aplikasi <em>mobile</em>, hingga integrasi perangkat keras (IoT).
             </p>
             <p className="text-[#E8E2DB]/90 text-lg leading-relaxed drop-shadow-md text-justify">
               Bagi saya, perangkat lunak bukan hanya sekadar barisan kode,
               melainkan jembatan untuk menciptakan sistem yang efisien dan
-              bermanfaat bagi masyarakat luas.
+              bermanfaat bagi masyarakat luas. Saya berkomitmen untuk terus
+              belajar dan berinovasi, dengan tujuan akhir memberikan dampak
+              positif melalui teknologi yang saya kembangkan.
             </p>
           </motion.div>
 
           {/* --- AREA SCROLL DITAMBAHKAN DI SINI --- */}
           <div className="relative ml-4 md:ml-0 max-h-[500px] overflow-y-auto overflow-x-hidden pr-4 custom-scrollbar">
             <div className="border-l border-[#547792]/40 space-y-10 pb-8">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={exp.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="relative pl-8"
-                >
-                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#1A3263] border-2 border-[#FAB95B] shadow-[0_0_10px_rgba(250,185,91,0.8)]"></div>
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
-                    <h3 className="text-lg font-bold text-[#E8E2DB] drop-shadow-md">
-                      {exp.role}
-                    </h3>
-                    <span className="text-xs font-bold text-[#FAB95B] tracking-wider mt-1 md:mt-0 drop-shadow-md">
-                      {exp.year}
-                    </span>
-                  </div>
-                  <h4 className="text-sm font-medium text-[#FAB95B]/90 mb-3 drop-shadow-md">
-                    {exp.organization}
-                  </h4>
-                  <p className="text-[#E8E2DB]/90 text-sm leading-relaxed bg-[#547792]/10 backdrop-blur-md p-4 rounded-xl border border-[#547792]/30 shadow-lg">
-                    {exp.description}
-                  </p>
-                </motion.div>
-              ))}
+              {experiences.map((exp, index) => {
+                // Mengecek apakah kartu ini sedang diperluas
+                const isExpanded = expandedCards.includes(exp.id);
+                // Menentukan apakah teks cukup panjang untuk diberi tombol (estimasi > 150 karakter)
+                const isLongText = exp.description.length > 150;
+                return (
+                  <motion.div
+                    key={exp.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    className="relative pl-8"
+                  >
+                    <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#1A3263] border-2 border-[#FAB95B] shadow-[0_0_10px_rgba(250,185,91,0.8)]"></div>
+                    <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
+                      <h3 className="text-lg font-bold text-[#E8E2DB] drop-shadow-md">
+                        {exp.role}
+                      </h3>
+                      <span className="text-xs font-bold text-[#FAB95B] tracking-wider mt-1 md:mt-0 drop-shadow-md">
+                        {exp.year}
+                      </span>
+                    </div>
+                    <h4 className="text-sm font-medium text-[#FAB95B]/90 mb-3 drop-shadow-md">
+                      {exp.organization}
+                    </h4>
+
+                    {/* Pembungkus Kartu Deskripsi */}
+                    <div className="bg-[#547792]/10 backdrop-blur-md p-4 rounded-xl border border-[#547792]/30 shadow-lg">
+                      <p
+                        className={`text-[#E8E2DB]/90 text-sm leading-relaxed transition-all duration-300 ${
+                          isExpanded ? "" : "line-clamp-3"
+                        }`}
+                      >
+                        {exp.description}
+                      </p>
+
+                      {/* Tombol Read More / Sembunyikan */}
+                      {isLongText && (
+                        <button
+                          onClick={() => toggleReadMore(exp.id)}
+                          className="mt-2 text-[#FAB95B] hover:text-[#E8E2DB] text-xs font-bold transition-colors focus:outline-none"
+                        >
+                          {isExpanded
+                            ? "Tampilkan Lebih Sedikit"
+                            : "Baca Selengkapnya"}
+                        </button>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
