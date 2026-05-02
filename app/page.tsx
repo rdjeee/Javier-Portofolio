@@ -228,7 +228,7 @@ const techSkills: Record<string, { name: string; src: string }[]> = {
   Semua: [
     { name: "Python", src: "/logos/python.svg" },
     { name: "Laravel", src: "/logos/laravel.svg" },
-    { name: "React", src: "/logos/react.svg" },
+    { name: "JavaScript", src: "/logos/javascript.svg" },
     { name: "Arduino IDE", src: "/logos/arduino.svg" },
     { name: "Supabase", src: "/logos/supabase.svg" },
     { name: "HTML/CSS", src: "/logos/html.svg" },
@@ -238,7 +238,6 @@ const techSkills: Record<string, { name: string; src: string }[]> = {
   ],
   "Web Development": [
     { name: "Laravel", src: "/logos/laravel.svg" },
-    { name: "React", src: "/logos/react.svg" },
     { name: "Tailwind CSS", src: "/logos/tailwind.svg" },
     { name: "HTML/CSS", src: "/logos/html.svg" },
   ],
@@ -249,7 +248,7 @@ const techSkills: Record<string, { name: string; src: string }[]> = {
   ],
   "Mobile & App": [
     { name: "Flutter", src: "/logos/flutter.svg" },
-    { name: "React", src: "/logos/react.svg" },
+    { name: "JavaScript", src: "/logos/javascript.svg" },
   ],
   "IoT & Hardware": [{ name: "Arduino IDE", src: "/logos/arduino.svg" }],
 };
