@@ -871,7 +871,7 @@ export default function Home() {
                       type="text"
                       id="name"
                       name="name"
-                      placeholder="Javier"
+                      placeholder="Javier Julian"
                       required
                       className="w-full bg-[#1A3263]/80 border border-[#547792]/40 rounded-xl px-5 py-3.5 text-[#E8E2DB] focus:outline-none focus:border-[#FAB95B] focus:ring-1 focus:ring-[#FAB95B] transition-all placeholder:text-[#E8E2DB]/40 disabled:opacity-50"
                       disabled={formStatus === "submitting"}
@@ -889,7 +889,7 @@ export default function Home() {
                       type="email"
                       id="email"
                       name="email"
-                      placeholder="javier@example.com"
+                      placeholder="javier@gmail.com"
                       required
                       className="w-full bg-[#1A3263]/80 border border-[#547792]/40 rounded-xl px-5 py-3.5 text-[#E8E2DB] focus:outline-none focus:border-[#FAB95B] focus:ring-1 focus:ring-[#FAB95B] transition-all placeholder:text-[#E8E2DB]/40 disabled:opacity-50"
                       disabled={formStatus === "submitting"}
@@ -925,7 +925,7 @@ export default function Home() {
                     id="message"
                     name="message"
                     rows={5}
-                    placeholder="Berikan detail tentang ide atau pertanyaan Anda"
+                    placeholder="Berikan detail tentang ide atau pertanyaan Anda."
                     required
                     className="w-full bg-[#1A3263]/80 border border-[#547792]/40 rounded-xl px-5 py-4 text-[#E8E2DB] focus:outline-none focus:border-[#FAB95B] focus:ring-1 focus:ring-[#FAB95B] transition-all placeholder:text-[#E8E2DB]/40 resize-none disabled:opacity-50"
                     disabled={formStatus === "submitting"}
